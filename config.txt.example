@@ -1,0 +1,4 @@
+#!/bin/bash
+SCMT_URL="https://privatetorrenttracker.com/"
+USER_ID="12345"
+PASS="verysecretgeneratedstring"
