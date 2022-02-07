@@ -3,7 +3,7 @@
 SCRIPTPATH="$( cd "$(dirname "$0")" || { echo -e "\e[91mERROR\e[0m: Script path cannot be found" ; exit; } >/dev/null 2>&1 ; pwd -P )"
 CONFIGFILE="$SCRIPTPATH"/config.txt
 source "$CONFIGFILE" || { echo -e "\e[91mERROR\e[0m: $CONFIGFILE doesn't exist in script path" ; exit; }
-USER_AGENT="get-torrent.sh, part of scmt-cli by lowsteppa"
+USER_AGENT="get-torrent.sh, part of scmt-cli by Czechball (https://github.com/Czechball/scmt-cli)"
 
 if [[ ${SCMT_URL,USER_ID,PASS} == "" ]]; then
   echo "Error, please check your config.txt file"
