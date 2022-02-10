@@ -15,12 +15,16 @@ function urldecode() { : "${*//+/ }"; echo -e "${_//%/\\x}"; }
 
 URL="$1"
 
+
 if [[ "$URL" == "" ]]; then
   echo "Error: No URL specified."
   exit 1
 fi
 
-PAGE_CONTENT=$(curl "$URL" -H 'User-Agent:'"$USER_AGENT" -H 'Cookie: uid='"$USER_ID"'; pass='"$PASS" --compressed)
+URL_FIX=$(echo "$URL" | sed s/"&hit=1"//)
+
+
+PAGE_CONTENT=$(curl "$URL_FIX" -H 'User-Agent:'"$USER_AGENT" -H 'Cookie: uid='"$USER_ID"'; pass='"$PASS" --compressed)
 URI=$(grep -Po 'href="download.php?\K[^"]+' <<< "$PAGE_CONTENT" | sed s/"amp;"//)
 DECODED_URI=$(urldecode "$URI")
 
